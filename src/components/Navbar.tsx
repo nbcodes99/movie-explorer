@@ -5,7 +5,7 @@ export const Navbar = () => {
         <a href="/">
           Movie<span className="text-zinc-50 font-bold">Trail</span>
         </a>
-        <div className="links">
+        <div className="links font-semibold">
           <ul className="flex mx-3" style={{ gap: "18px" }}>
             <li>
               <a href="/">Home</a>
