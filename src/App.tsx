@@ -1,11 +1,17 @@
+import { Route, Routes } from "react-router";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
+import { Home } from "./components/Home";
+import { Favorites } from "./components/Favorites";
 
 function App() {
   return (
     <>
       <Navbar />
-      <h1>Home</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
     </>
   );
 }
