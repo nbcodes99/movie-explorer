@@ -1,6 +1,6 @@
 import { MovieCard } from "./MovieCard";
 import "../App.css";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import movies from "../data/movies.json";
 
 export const Home = () => {
@@ -8,15 +8,14 @@ export const Home = () => {
   const [filteredMovies, setFilteredMovies] = useState(movies);
   const searchRef = useRef<HTMLInputElement>(null);
 
-  // Handle search input change
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault(); // Prevent page refresh on form submit
+    e.preventDefault();
     const filtered = movies.filter(
       (movie) =>
         movie.title.toLowerCase().includes(search.toLowerCase()) ||
         movie.genre.toLowerCase().includes(search.toLowerCase())
     );
-    setFilteredMovies(filtered); // Update filtered movies state
+    setFilteredMovies(filtered);
   };
 
   return (
@@ -36,7 +35,7 @@ export const Home = () => {
               type="text"
               placeholder="Search movies..."
               className="input input-bordered input-info w-full max-w-xs"
-              onChange={(e) => setSearch(e.target.value)} // Update search term on change
+              onChange={(e) => setSearch(e.target.value)}
               value={search}
               ref={searchRef}
             />
@@ -54,7 +53,7 @@ export const Home = () => {
               {filteredMovies.length > 0 ? (
                 filteredMovies.map((movie, index) => (
                   <MovieCard
-                    key={index} // Added key for list rendering
+                    key={index}
                     poster={movie.poster}
                     title={movie.title}
                     genre={movie.genre}
